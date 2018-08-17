@@ -94,7 +94,7 @@ class TaskCollectionLayout: UICollectionViewFlowLayout {
     }
     
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-        let aa = self.cachedAttributes.map { $0.value.filter { $0.frame.intersects(rect) } }
+        return self.cachedAttributes.reduce([]) { $0 + $1.value.filter { $0.frame.intersects(rect) } }
     }
     
     override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
