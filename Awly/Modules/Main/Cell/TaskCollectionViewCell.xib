@@ -6,13 +6,14 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="TaskCollectionViewCell" customModule="Awly" customModuleProvider="target">
+        <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="TaskCollectionViewCell" customModule="Awly" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="389" height="66"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -22,29 +23,33 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yVb-Dl-4KQ">
                         <rect key="frame" x="0.0" y="0.0" width="389" height="66"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aPX-lC-o4I">
-                                <rect key="frame" x="0.0" y="0.0" width="5" height="66"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="5" id="7tC-b6-6YW"/>
-                                </constraints>
-                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cW1-CQ-6n1">
-                                <rect key="frame" x="21" y="8" width="352" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="64" y="8" width="309" height="25.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <color key="textColor" name="DarkColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lrF-pj-REN" customClass="CheckboxButton" customModule="Awly" customModuleProvider="target">
+                                <rect key="frame" x="16" y="13" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="QPP-PC-0N7"/>
+                                    <constraint firstAttribute="width" constant="40" id="v1R-vS-NP5"/>
+                                </constraints>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="aPX-lC-o4I" firstAttribute="top" secondItem="yVb-Dl-4KQ" secondAttribute="top" id="6Qo-H4-RjB"/>
-                            <constraint firstItem="cW1-CQ-6n1" firstAttribute="leading" secondItem="aPX-lC-o4I" secondAttribute="trailing" constant="16" id="Hbu-mX-DtJ"/>
-                            <constraint firstAttribute="bottom" secondItem="aPX-lC-o4I" secondAttribute="bottom" id="Pji-CK-nb8"/>
-                            <constraint firstItem="aPX-lC-o4I" firstAttribute="leading" secondItem="yVb-Dl-4KQ" secondAttribute="leading" id="Zbz-Oo-kS4"/>
+                            <constraint firstItem="lrF-pj-REN" firstAttribute="centerY" secondItem="yVb-Dl-4KQ" secondAttribute="centerY" id="G8A-cV-JlG"/>
                             <constraint firstItem="cW1-CQ-6n1" firstAttribute="top" secondItem="yVb-Dl-4KQ" secondAttribute="top" constant="8" id="aIq-e7-0J0"/>
+                            <constraint firstItem="lrF-pj-REN" firstAttribute="leading" secondItem="yVb-Dl-4KQ" secondAttribute="leading" constant="16" id="jNu-at-saa"/>
+                            <constraint firstItem="cW1-CQ-6n1" firstAttribute="leading" secondItem="lrF-pj-REN" secondAttribute="trailing" constant="8" id="q45-eI-Xml"/>
                             <constraint firstAttribute="trailing" secondItem="cW1-CQ-6n1" secondAttribute="trailing" constant="16" id="uVc-5M-Y2w"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
             </view>
@@ -56,7 +61,16 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="389" height="66"/>
+            <connections>
+                <outlet property="containerView" destination="yVb-Dl-4KQ" id="nka-1S-Y6P"/>
+                <outlet property="titleLabel" destination="cW1-CQ-6n1" id="Cf4-AR-iLE"/>
+            </connections>
             <point key="canvasLocation" x="203.5" y="62"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <namedColor name="DarkColor">
+            <color red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

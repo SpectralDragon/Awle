@@ -26,6 +26,17 @@
 		CDE356C72125E3BC00295BD5 /* TaskSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE356C52125E3BC00295BD5 /* TaskSectionHeaderView.swift */; };
 		CDE356C82125E3BC00295BD5 /* TaskSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDE356C62125E3BC00295BD5 /* TaskSectionHeaderView.xib */; };
 		CDE356CA2125E55800295BD5 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDE356C92125E55800295BD5 /* Colors.xcassets */; };
+		CDE356CD2125EAFC00295BD5 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE356CC2125EAFC00295BD5 /* UIView+Extensions.swift */; };
+		CDE356D22125EC7F00295BD5 /* CheckboxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE356D12125EC7F00295BD5 /* CheckboxButton.swift */; };
+		CDE356D82126F62500295BD5 /* TaskViewer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDE356D72126F62500295BD5 /* TaskViewer.storyboard */; };
+		CDE356DA2126F63000295BD5 /* TaskViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE356D92126F63000295BD5 /* TaskViewerViewController.swift */; };
+		CDE356DD212727AE00295BD5 /* InfoTaskCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE356DB212727AE00295BD5 /* InfoTaskCollectionReusableView.swift */; };
+		CDE356DE212727AE00295BD5 /* InfoTaskCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDE356DC212727AE00295BD5 /* InfoTaskCollectionReusableView.xib */; };
+		CDE356E2212728D100295BD5 /* InfoTaskCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE356E0212728D100295BD5 /* InfoTaskCollectionViewCell.swift */; };
+		CDE356E3212728D100295BD5 /* InfoTaskCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDE356E1212728D100295BD5 /* InfoTaskCollectionViewCell.xib */; };
+		CDE356E721272C9E00295BD5 /* InfoTaskDisplayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE356E621272C9E00295BD5 /* InfoTaskDisplayItem.swift */; };
+		CDE356E9212731CB00295BD5 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE356E8212731CB00295BD5 /* Style.swift */; };
+		CDE356EB2127350100295BD5 /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE356EA2127350100295BD5 /* Collection+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +82,17 @@
 		CDE356C52125E3BC00295BD5 /* TaskSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskSectionHeaderView.swift; sourceTree = "<group>"; };
 		CDE356C62125E3BC00295BD5 /* TaskSectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskSectionHeaderView.xib; sourceTree = "<group>"; };
 		CDE356C92125E55800295BD5 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		CDE356CC2125EAFC00295BD5 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		CDE356D12125EC7F00295BD5 /* CheckboxButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxButton.swift; sourceTree = "<group>"; };
+		CDE356D72126F62500295BD5 /* TaskViewer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TaskViewer.storyboard; sourceTree = "<group>"; };
+		CDE356D92126F63000295BD5 /* TaskViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewerViewController.swift; sourceTree = "<group>"; };
+		CDE356DB212727AE00295BD5 /* InfoTaskCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTaskCollectionReusableView.swift; sourceTree = "<group>"; };
+		CDE356DC212727AE00295BD5 /* InfoTaskCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoTaskCollectionReusableView.xib; sourceTree = "<group>"; };
+		CDE356E0212728D100295BD5 /* InfoTaskCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTaskCollectionViewCell.swift; sourceTree = "<group>"; };
+		CDE356E1212728D100295BD5 /* InfoTaskCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoTaskCollectionViewCell.xib; sourceTree = "<group>"; };
+		CDE356E621272C9E00295BD5 /* InfoTaskDisplayItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTaskDisplayItem.swift; sourceTree = "<group>"; };
+		CDE356E8212731CB00295BD5 /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
+		CDE356EA2127350100295BD5 /* Collection+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +143,7 @@
 		CDE356722125685700295BD5 /* Awly */ = {
 			isa = PBXGroup;
 			children = (
+				CDE356E421272C8700295BD5 /* Models */,
 				CDE356B32125DB9700295BD5 /* Utils */,
 				CDE356A92125707500295BD5 /* AppModule */,
 				CDE356A421256F2D00295BD5 /* Modules */,
@@ -153,6 +176,8 @@
 		CDE356A421256F2D00295BD5 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				CDE356D62126F61100295BD5 /* TaskViewer */,
+				CDE356CF2125EC6B00295BD5 /* General */,
 				CDE356BE2125E1AB00295BD5 /* Settings */,
 				CDE356A521256F3A00295BD5 /* Main */,
 			);
@@ -199,6 +224,7 @@
 		CDE356AE212583DD00295BD5 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				CDE356DF212728B500295BD5 /* Info */,
 				CDE356AF2125840800295BD5 /* TaskCollectionViewCell.swift */,
 				CDE356B02125840800295BD5 /* TaskCollectionViewCell.xib */,
 				CDE356C52125E3BC00295BD5 /* TaskSectionHeaderView.swift */,
@@ -210,6 +236,7 @@
 		CDE356B32125DB9700295BD5 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				CDE356CB2125EAEC00295BD5 /* Extensions */,
 				CDE356B42125DB9C00295BD5 /* Protocols */,
 			);
 			path = Utils;
@@ -239,6 +266,68 @@
 				CDE356C12125E1D900295BD5 /* SettingsViewController.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		CDE356CB2125EAEC00295BD5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CDE356CC2125EAFC00295BD5 /* UIView+Extensions.swift */,
+				CDE356EA2127350100295BD5 /* Collection+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CDE356CF2125EC6B00295BD5 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				CDE356D02125EC6F00295BD5 /* Views */,
+				CDE356E8212731CB00295BD5 /* Style.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		CDE356D02125EC6F00295BD5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CDE356D12125EC7F00295BD5 /* CheckboxButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CDE356D62126F61100295BD5 /* TaskViewer */ = {
+			isa = PBXGroup;
+			children = (
+				CDE356D72126F62500295BD5 /* TaskViewer.storyboard */,
+				CDE356D92126F63000295BD5 /* TaskViewerViewController.swift */,
+			);
+			path = TaskViewer;
+			sourceTree = "<group>";
+		};
+		CDE356DF212728B500295BD5 /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				CDE356DB212727AE00295BD5 /* InfoTaskCollectionReusableView.swift */,
+				CDE356DC212727AE00295BD5 /* InfoTaskCollectionReusableView.xib */,
+				CDE356E0212728D100295BD5 /* InfoTaskCollectionViewCell.swift */,
+				CDE356E1212728D100295BD5 /* InfoTaskCollectionViewCell.xib */,
+			);
+			path = Info;
+			sourceTree = "<group>";
+		};
+		CDE356E421272C8700295BD5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CDE356E521272C8C00295BD5 /* DisplayItems */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CDE356E521272C8C00295BD5 /* DisplayItems */ = {
+			isa = PBXGroup;
+			children = (
+				CDE356E621272C9E00295BD5 /* InfoTaskDisplayItem.swift */,
+			);
+			path = DisplayItems;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -348,8 +437,11 @@
 				CDE356C82125E3BC00295BD5 /* TaskSectionHeaderView.xib in Resources */,
 				CDE356812125685800295BD5 /* LaunchScreen.storyboard in Resources */,
 				CDE356B22125840800295BD5 /* TaskCollectionViewCell.xib in Resources */,
+				CDE356E3212728D100295BD5 /* InfoTaskCollectionViewCell.xib in Resources */,
 				CDE356AD212570A600295BD5 /* MainScreen.storyboard in Resources */,
+				CDE356D82126F62500295BD5 /* TaskViewer.storyboard in Resources */,
 				CDE356C02125E1C500295BD5 /* Settings.storyboard in Resources */,
+				CDE356DE212727AE00295BD5 /* InfoTaskCollectionReusableView.xib in Resources */,
 				CDE356CA2125E55800295BD5 /* Colors.xcassets in Resources */,
 				CDE3567E2125685800295BD5 /* Assets.xcassets in Resources */,
 				CDE356792125685700295BD5 /* Main.storyboard in Resources */,
@@ -379,11 +471,19 @@
 			files = (
 				CDE356C72125E3BC00295BD5 /* TaskSectionHeaderView.swift in Sources */,
 				CDE356BA2125DEEB00295BD5 /* Configurable.swift in Sources */,
+				CDE356CD2125EAFC00295BD5 /* UIView+Extensions.swift in Sources */,
+				CDE356DD212727AE00295BD5 /* InfoTaskCollectionReusableView.swift in Sources */,
 				CDE3567C2125685700295BD5 /* Awly.xcdatamodeld in Sources */,
 				CDE356C22125E1D900295BD5 /* SettingsViewController.swift in Sources */,
+				CDE356E721272C9E00295BD5 /* InfoTaskDisplayItem.swift in Sources */,
+				CDE356E9212731CB00295BD5 /* Style.swift in Sources */,
+				CDE356EB2127350100295BD5 /* Collection+Extensions.swift in Sources */,
 				CDE356B12125840800295BD5 /* TaskCollectionViewCell.swift in Sources */,
 				CDE356742125685700295BD5 /* AppDelegate.swift in Sources */,
+				CDE356E2212728D100295BD5 /* InfoTaskCollectionViewCell.swift in Sources */,
+				CDE356D22125EC7F00295BD5 /* CheckboxButton.swift in Sources */,
 				CDE356A721256F5A00295BD5 /* MainViewController.swift in Sources */,
+				CDE356DA2126F63000295BD5 /* TaskViewerViewController.swift in Sources */,
 				CDE356BD2125E16400295BD5 /* TaskCollectionLayout.swift in Sources */,
 				CDE356B82125DC1C00295BD5 /* Reusable.swift in Sources */,
 			);
@@ -491,7 +591,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -545,7 +645,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -561,7 +661,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8PYCRS3EA3;
 				INFOPLIST_FILE = Awly/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -580,7 +680,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8PYCRS3EA3;
 				INFOPLIST_FILE = Awly/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

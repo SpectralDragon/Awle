@@ -8,15 +8,32 @@
 
 import UIKit
 
-class MainViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDataSourcePrefetching, UICollectionViewDelegateFlowLayout {
+class MainViewController: UIViewController {
     
     @IBOutlet private weak var collectionView: UICollectionView!
+    private weak var searchController: UISearchController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.registerCells()
+        self.setupSearchController()
+    }
+    
+    // MARK: - Setup
+    
+    private func registerCells() {
         self.collectionView.register(TaskCollectionViewCell.nib, forCellWithReuseIdentifier: TaskCollectionViewCell.reuseIdentifier)
         self.collectionView.register(TaskSectionHeaderView.nib, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: TaskSectionHeaderView.reuseIdentifier)
+        self.collectionView.register(InfoTaskCollectionReusableView.nib, forSupplementaryViewOfKind: InfoTaskCollectionReusableView.kind, withReuseIdentifier: InfoTaskCollectionReusableView.reuseIdentifier)
+    }
+    
+    private func setupSearchController() {
+        
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.dimsBackgroundDuringPresentation = false
+        self.navigationItem.searchController = searchController
+        self.navigationItem.hidesSearchBarWhenScrolling = false
+        self.searchController = searchController
     }
     
     // MARK: - Actions
@@ -25,7 +42,12 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
     }
     
-    // MARK: - UICollectionViewDelegate, UICollectionViewDataSource
+}
+
+// MARK: - UICollectionViewDelegate, UICollectionViewDataSource
+
+extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -40,7 +62,8 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        return collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: TaskSectionHeaderView.reuseIdentifier, for: indexPath)
+        let reuseIdentifier = InfoTaskCollectionReusableView.kind == kind ? InfoTaskCollectionReusableView.reuseIdentifier : TaskSectionHeaderView.reuseIdentifier
+        return collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: reuseIdentifier, for: indexPath)
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
@@ -49,9 +72,24 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplaySupplementaryView view: UICollectionReusableView, forElementKind elementKind: String, at indexPath: IndexPath) {
-        guard let view = view as? TaskSectionHeaderView else { return }
-        view.titleLabel.text = "Today"
+        switch elementKind {
+        case InfoTaskCollectionReusableView.kind:
+            guard let view = view as? InfoTaskCollectionReusableView else { return }
+            view.configure(with: [InfoTaskDisplayItem(title: "Completed", count: 123), InfoTaskDisplayItem(title: "Doing", count: 123), InfoTaskDisplayItem(title: "Completed", count: 123)])
+        case UICollectionElementKindSectionHeader:
+            guard let view = view as? TaskSectionHeaderView else { return }
+            view.titleLabel.text = "Today"
+        default:
+            return
+        }
+        
     }
+    
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout
+
+extension MainViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: collectionView.frame.width, height: 50)
@@ -61,8 +99,11 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         return CGSize(width: collectionView.frame.width - 16 * 2, height: 45)
     }
     
-    
-    // MARK: - UICollectionViewDataSourcePrefetching
+}
+
+// MARK: - UICollectionViewDataSourcePrefetching
+
+extension MainViewController: UICollectionViewDataSourcePrefetching {
     
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         

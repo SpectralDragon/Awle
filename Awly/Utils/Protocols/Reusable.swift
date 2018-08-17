@@ -15,7 +15,7 @@ typealias ReusableTableViewCell = UITableViewCell & Reusable
 typealias ReusableCollectionViewCell = UICollectionViewCell & Reusable
 typealias ReusableTableViewHeaderFooter = UITableViewHeaderFooterView & Reusable
 
-protocol Reusable: class  {
+protocol Reusable: AnyObject {
     static var reuseIdentifier: String { get }
     static var nibName: String { get }
     static var nib: UINib { get }
