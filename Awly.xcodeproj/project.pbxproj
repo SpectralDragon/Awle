@@ -37,6 +37,9 @@
 		CDE356E721272C9E00295BD5 /* InfoTaskDisplayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE356E621272C9E00295BD5 /* InfoTaskDisplayItem.swift */; };
 		CDE356E9212731CB00295BD5 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE356E8212731CB00295BD5 /* Style.swift */; };
 		CDE356EB2127350100295BD5 /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE356EA2127350100295BD5 /* Collection+Extensions.swift */; };
+		CDE356EF21283F5F00295BD5 /* TouchGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE356EE21283F5F00295BD5 /* TouchGestureRecognizer.swift */; };
+		CDE356F121283F8500295BD5 /* TouchHandlerGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE356F021283F8500295BD5 /* TouchHandlerGestureRecognizer.swift */; };
+		CDE356F321283FA100295BD5 /* PressStateAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE356F221283FA100295BD5 /* PressStateAnimatable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +96,9 @@
 		CDE356E621272C9E00295BD5 /* InfoTaskDisplayItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTaskDisplayItem.swift; sourceTree = "<group>"; };
 		CDE356E8212731CB00295BD5 /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		CDE356EA2127350100295BD5 /* Collection+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
+		CDE356EE21283F5F00295BD5 /* TouchGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchGestureRecognizer.swift; sourceTree = "<group>"; };
+		CDE356F021283F8500295BD5 /* TouchHandlerGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchHandlerGestureRecognizer.swift; sourceTree = "<group>"; };
+		CDE356F221283FA100295BD5 /* PressStateAnimatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressStateAnimatable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +149,7 @@
 		CDE356722125685700295BD5 /* Awly */ = {
 			isa = PBXGroup;
 			children = (
+				CDE356EC21283F2A00295BD5 /* Core */,
 				CDE356E421272C8700295BD5 /* Models */,
 				CDE356B32125DB9700295BD5 /* Utils */,
 				CDE356A92125707500295BD5 /* AppModule */,
@@ -176,8 +183,8 @@
 		CDE356A421256F2D00295BD5 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				CDE356D62126F61100295BD5 /* TaskViewer */,
 				CDE356CF2125EC6B00295BD5 /* General */,
+				CDE356D62126F61100295BD5 /* TaskViewer */,
 				CDE356BE2125E1AB00295BD5 /* Settings */,
 				CDE356A521256F3A00295BD5 /* Main */,
 			);
@@ -236,6 +243,7 @@
 		CDE356B32125DB9700295BD5 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				CDE356ED21283F3E00295BD5 /* Gestures */,
 				CDE356CB2125EAEC00295BD5 /* Extensions */,
 				CDE356B42125DB9C00295BD5 /* Protocols */,
 			);
@@ -247,6 +255,7 @@
 			children = (
 				CDE356B72125DC1C00295BD5 /* Reusable.swift */,
 				CDE356B92125DEEB00295BD5 /* Configurable.swift */,
+				CDE356F221283FA100295BD5 /* PressStateAnimatable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -328,6 +337,22 @@
 				CDE356E621272C9E00295BD5 /* InfoTaskDisplayItem.swift */,
 			);
 			path = DisplayItems;
+			sourceTree = "<group>";
+		};
+		CDE356EC21283F2A00295BD5 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		CDE356ED21283F3E00295BD5 /* Gestures */ = {
+			isa = PBXGroup;
+			children = (
+				CDE356EE21283F5F00295BD5 /* TouchGestureRecognizer.swift */,
+				CDE356F021283F8500295BD5 /* TouchHandlerGestureRecognizer.swift */,
+			);
+			path = Gestures;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -470,8 +495,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDE356C72125E3BC00295BD5 /* TaskSectionHeaderView.swift in Sources */,
+				CDE356EF21283F5F00295BD5 /* TouchGestureRecognizer.swift in Sources */,
 				CDE356BA2125DEEB00295BD5 /* Configurable.swift in Sources */,
+				CDE356F121283F8500295BD5 /* TouchHandlerGestureRecognizer.swift in Sources */,
 				CDE356CD2125EAFC00295BD5 /* UIView+Extensions.swift in Sources */,
+				CDE356F321283FA100295BD5 /* PressStateAnimatable.swift in Sources */,
 				CDE356DD212727AE00295BD5 /* InfoTaskCollectionReusableView.swift in Sources */,
 				CDE3567C2125685700295BD5 /* Awly.xcdatamodeld in Sources */,
 				CDE356C22125E1D900295BD5 /* SettingsViewController.swift in Sources */,

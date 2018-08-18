@@ -17,34 +17,18 @@
             <rect key="frame" x="0.0" y="0.0" width="465" height="58"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
-                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J76-n0-rh6">
-                    <rect key="frame" x="0.0" y="0.0" width="465" height="58"/>
-                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="0gb-eW-7cq">
-                        <rect key="frame" x="0.0" y="0.0" width="465" height="58"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w61-Dc-LXt">
-                                <rect key="frame" x="16" y="8" width="433" height="42"/>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="22"/>
-                                <color key="textColor" name="DarkColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="w61-Dc-LXt" firstAttribute="leading" secondItem="0gb-eW-7cq" secondAttribute="leading" constant="16" id="VCi-xp-2XY"/>
-                            <constraint firstAttribute="trailing" secondItem="w61-Dc-LXt" secondAttribute="trailing" constant="16" id="e5q-UH-irY"/>
-                            <constraint firstItem="w61-Dc-LXt" firstAttribute="top" secondItem="0gb-eW-7cq" secondAttribute="top" constant="8" id="g0P-IJ-Day"/>
-                            <constraint firstAttribute="bottom" secondItem="w61-Dc-LXt" secondAttribute="bottom" constant="8" id="u9S-ex-oCs"/>
-                        </constraints>
-                    </view>
-                    <blurEffect style="light"/>
-                </visualEffectView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w61-Dc-LXt">
+                    <rect key="frame" x="16" y="8" width="433" height="42"/>
+                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="22"/>
+                    <color key="textColor" name="DarkColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <constraints>
-                <constraint firstItem="J76-n0-rh6" firstAttribute="top" secondItem="VXr-Tz-HHm" secondAttribute="top" id="1Pf-dx-mTO"/>
-                <constraint firstItem="J76-n0-rh6" firstAttribute="bottom" secondItem="VXr-Tz-HHm" secondAttribute="bottom" id="hgb-5L-iv7"/>
-                <constraint firstItem="J76-n0-rh6" firstAttribute="trailing" secondItem="VXr-Tz-HHm" secondAttribute="trailing" id="lnj-SL-2d7"/>
-                <constraint firstItem="J76-n0-rh6" firstAttribute="leading" secondItem="VXr-Tz-HHm" secondAttribute="leading" id="o7w-Cm-OeF"/>
+                <constraint firstItem="w61-Dc-LXt" firstAttribute="top" secondItem="VXr-Tz-HHm" secondAttribute="top" constant="8" id="0Nq-Wg-psL"/>
+                <constraint firstItem="VXr-Tz-HHm" firstAttribute="bottom" secondItem="w61-Dc-LXt" secondAttribute="bottom" constant="8" id="Pv4-3M-WRj"/>
+                <constraint firstItem="w61-Dc-LXt" firstAttribute="leading" secondItem="VXr-Tz-HHm" secondAttribute="leading" constant="16" id="c4V-xw-sC4"/>
+                <constraint firstItem="VXr-Tz-HHm" firstAttribute="trailing" secondItem="w61-Dc-LXt" secondAttribute="trailing" constant="16" id="eOr-gO-RaF"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="VXr-Tz-HHm"/>
             <connections>

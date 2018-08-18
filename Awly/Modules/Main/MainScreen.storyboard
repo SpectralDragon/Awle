@@ -53,7 +53,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="2rk-Zf-u9D" id="uhL-K1-OvI"/>
-                        <segue destination="REs-zY-TXA" kind="presentation" id="6jx-GM-quQ"/>
+                        <segue destination="REs-zY-TXA" kind="presentation" identifier="tastViewerSegue" id="6jx-GM-quQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3lW-UL-ISe" userLabel="First Responder" sceneMemberID="firstResponder"/>

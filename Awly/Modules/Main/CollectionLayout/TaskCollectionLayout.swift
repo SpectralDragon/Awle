@@ -11,7 +11,6 @@ import UIKit
 protocol TaskCollectionLayoutDelegate: class {
     func itemHeight(at indexPath: IndexPath, with width: CGFloat) -> CGFloat
     func heightForSupplementaryViewOfKind(_ kind: String) -> CGFloat?
-    func supplementaryViewKind(forSection section: Int) -> String?
 }
 
 class TaskCollectionLayout: UICollectionViewFlowLayout {
@@ -32,9 +31,15 @@ class TaskCollectionLayout: UICollectionViewFlowLayout {
     }
     
     override func prepare() {
+        
+        self.minimumLineSpacing = Style.Sizes.standartOffset
+        
         super.prepare()
         guard let collectionView = self.collectionView else { return }
         let sections = collectionView.numberOfSections
+        
+        var lastYOffset: CGFloat = 0
+        
         for section in 0 ..< sections {
             let numberOfItems = collectionView.numberOfItems(inSection: section)
             self.cachedAttributes[section] = []
@@ -45,8 +50,21 @@ class TaskCollectionLayout: UICollectionViewFlowLayout {
             
             var columnYOffset = Array(repeating: self.sectionInset.top, count: maxNumColumn)
             
+            columnYOffset[0] = lastYOffset
+            
+            if let headerHeight = self.delegate.heightForSupplementaryViewOfKind(UICollectionElementKindSectionHeader) {
+                let indexPath = IndexPath(row: 0, section: section)
+                let columnMaxYOffset = columnYOffset.max() ?? 0
+                
+                let headerAttributes = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, with: indexPath)
+                headerAttributes.frame = CGRect(x: 0, y: columnMaxYOffset, width: collectionView.bounds.width, height: headerHeight)
+                self.cachedAttributes[section]?.append(headerAttributes)
+                
+                columnYOffset[0] = columnMaxYOffset + headerHeight + self.minimumLineSpacing
+            }
+            
             for index in 0 ..< numberOfItems {
-                let indexPath = IndexPath(row: index, section: 0)
+                let indexPath = IndexPath(row: index, section: section)
                 let itemHeight = self.delegate.itemHeight(at: indexPath, with: itemWidth)
                 
                 let minY: CGFloat = columnYOffset.min()!
@@ -57,23 +75,21 @@ class TaskCollectionLayout: UICollectionViewFlowLayout {
                 attributes.frame = CGRect(x: x, y: minY, width: itemWidth, height: itemHeight)
                 self.cachedAttributes[section]?.append(attributes)
                 
-                columnYOffset[column] = minY + itemHeight + Style.Sizes.standartOffset
+                columnYOffset[column] = minY + itemHeight + self.minimumLineSpacing
             }
             
             if let footerHeight = self.delegate.heightForSupplementaryViewOfKind(UICollectionElementKindSectionFooter) {
-                let indexPath = IndexPath(row: numberOfItems, section: 0)
+                let indexPath = IndexPath(row: numberOfItems, section: section)
                 let columnMaxYOffset = columnYOffset.max() ?? 0
                 let footerAttributes = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, with: indexPath)
                 footerAttributes.frame = CGRect(x: 0, y: columnMaxYOffset, width: collectionView.bounds.width, height: footerHeight)
                 self.cachedAttributes[section]?.append(footerAttributes)
-                self.contentSize = CGSize(width: collectionView.bounds.width, height: columnYOffset.max()! + footerHeight)
-            } else if let headerHeight = self.delegate.heightForSupplementaryViewOfKind(UICollectionElementKindSectionFooter) {
-                
-            } else if let kind = self.delegate.supplementaryViewKind(forSection: section), let height = self.delegate.heightForSupplementaryViewOfKind(kind) {
-                
+                self.contentSize = CGSize(width: collectionView.bounds.width, height: columnYOffset.max()! + footerHeight + self.minimumLineSpacing)
             } else {
-                self.contentSize = CGSize(width: collectionView.bounds.width, height: columnYOffset.max()!)
+                self.contentSize = CGSize(width: collectionView.bounds.width, height: columnYOffset.max()! + self.minimumLineSpacing)
             }
+            
+            lastYOffset = self.contentSize.height
         }
     }
     

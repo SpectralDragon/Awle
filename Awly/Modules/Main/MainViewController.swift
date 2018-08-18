@@ -10,12 +10,17 @@ import UIKit
 
 class MainViewController: UIViewController {
     
+    enum Constants {
+        static let tastViewerSegueIdentifier = "tastViewerSegue"
+    }
+    
     @IBOutlet private weak var collectionView: UICollectionView!
     private weak var searchController: UISearchController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.registerCells()
+        self.setupCollectionViewLayout()
         self.setupSearchController()
     }
     
@@ -24,11 +29,15 @@ class MainViewController: UIViewController {
     private func registerCells() {
         self.collectionView.register(TaskCollectionViewCell.nib, forCellWithReuseIdentifier: TaskCollectionViewCell.reuseIdentifier)
         self.collectionView.register(TaskSectionHeaderView.nib, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: TaskSectionHeaderView.reuseIdentifier)
-        self.collectionView.register(InfoTaskCollectionReusableView.nib, forSupplementaryViewOfKind: InfoTaskCollectionReusableView.kind, withReuseIdentifier: InfoTaskCollectionReusableView.reuseIdentifier)
+    }
+    
+    private func setupCollectionViewLayout() {
+        let collectionLayout = TaskCollectionLayout()
+        collectionLayout.delegate = self
+        self.collectionView.collectionViewLayout = collectionLayout
     }
     
     private func setupSearchController() {
-        
         let searchController = UISearchController(searchResultsController: nil)
         searchController.dimsBackgroundDuringPresentation = false
         self.navigationItem.searchController = searchController
@@ -42,15 +51,19 @@ class MainViewController: UIViewController {
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == Constants.tastViewerSegueIdentifier else { return }
+        
+    }
+    
 }
 
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource
 
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
-    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -73,30 +86,12 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, willDisplaySupplementaryView view: UICollectionReusableView, forElementKind elementKind: String, at indexPath: IndexPath) {
         switch elementKind {
-        case InfoTaskCollectionReusableView.kind:
-            guard let view = view as? InfoTaskCollectionReusableView else { return }
-            view.configure(with: [InfoTaskDisplayItem(title: "Completed", count: 123), InfoTaskDisplayItem(title: "Doing", count: 123), InfoTaskDisplayItem(title: "Completed", count: 123)])
         case UICollectionElementKindSectionHeader:
             guard let view = view as? TaskSectionHeaderView else { return }
-            view.titleLabel.text = "Today"
+            view.titleLabel.text = "Today \(indexPath.section)"
         default:
             return
         }
-        
-    }
-    
-}
-
-// MARK: - UICollectionViewDelegateFlowLayout
-
-extension MainViewController: UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: 50)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width - 16 * 2, height: 45)
     }
     
 }
@@ -112,5 +107,35 @@ extension MainViewController: UICollectionViewDataSourcePrefetching {
     func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
         
     }
+    
+}
+
+// MARK: - TaskCollectionLayoutDelegate
+
+extension MainViewController: TaskCollectionLayoutDelegate {
+    
+    func itemHeight(at indexPath: IndexPath, with width: CGFloat) -> CGFloat {
+        return 50
+    }
+    
+    func heightForSupplementaryViewOfKind(_ kind: String) -> CGFloat? {
+        return kind == UICollectionElementKindSectionHeader ? 50 : nil
+    }
+    
+}
+
+// MARK: - UISearchResultsUpdating
+
+extension MainViewController: UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        
+    }
+    
+}
+
+// MARK: - UISearchControllerDelegate
+
+extension MainViewController: UISearchControllerDelegate {
     
 }
